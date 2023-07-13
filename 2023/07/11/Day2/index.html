@@ -32,7 +32,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/touxiang.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing || and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":false},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/touxiang.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing || and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":false},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -46,9 +46,6 @@
         <span class="scroll-progress-bar"></span>
     
 
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
     
 </div>
 
@@ -95,14 +92,6 @@
                             </a>
                         </li>
                     
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                CATEGORIES
-                            </a>
-                        </li>
-                    
                     
                         <li class="menu-item search search-popup-trigger">
                             <i class="fas fa-search"></i>
@@ -132,11 +121,6 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">CATEGORIES</a>
                 </li>
             
         </ul>
@@ -271,64 +255,29 @@
 <h2 id="四、关系代数"><a href="#四、关系代数" class="headerlink" title="四、关系代数"></a>四、关系代数</h2><p>关系代数是一种抽象的查询语言，它用对关系的运算来表达查询。</p>
 <p>关系代数的运算按运算符的不同可分为传统的集合运算和专门的关系运算两类。</p>
 <h3 id="（一）传统的集合运算"><a href="#（一）传统的集合运算" class="headerlink" title="（一）传统的集合运算"></a>（一）传统的集合运算</h3><p>传统的集合运算是二目运算，包括并，差，交，笛卡尔积四种运算。</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151508643.115uhs994h8w.png"
-                      alt="image-20230711151508643" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151508643.115uhs994h8w.png" alt="image-20230711151508643" style="zoom:50%;" />
 
 <h3 id="（二）专门的关系运算"><a href="#（二）专门的关系运算" class="headerlink" title="（二）专门的关系运算"></a>（二）专门的关系运算</h3><p>专门的关系运算包括选择、投影、连接、除运算等。</p>
 <p>1、选择</p>
 <p>选择又称为限制。</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150251738.6r59pi155do0.png"
-                      alt="image-20230711150251738" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150251738.6r59pi155do0.png" alt="image-20230711150251738" style="zoom:50%;" />
 
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150314688.4xumzi2339g0.png"
-                      alt="image-20230711150314688" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150314688.4xumzi2339g0.png" alt="image-20230711150314688" style="zoom:50%;" />
 
 <p>选择查询</p>
 <p>2、投影</p>
 <p>关系R上的投影是从R中选择出若干属性列组成新的关系。</p>
-<p><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150512776.335ldijziii0.png"
-                      alt="image-20230711150512776"
-                ></p>
+<p><img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711150512776.335ldijziii0.png" alt="image-20230711150512776"></p>
 <p>3、连接</p>
 <p>连接也称为θ连接。</p>
 <p>θ为“&#x3D;”的连接运算称为等值连接。自然连接是一种特殊的等值连接。</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151039210.da985wwbu4w.png"
-                      alt="image-20230711151039210" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151039210.da985wwbu4w.png" alt="image-20230711151039210" style="zoom:50%;" />
 
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151100945.567g22b5gr00.png"
-                      alt="image-20230711151100945" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711151100945.567g22b5gr00.png" alt="image-20230711151100945" style="zoom:50%;" />
 
 <p>4、除运算</p>
 <p>设关系R除以关系S的结果为关系T，则T包含所有在R但不在S中的属性及其值，且T的元组与S的元组的所有组合都在R中。</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711145033148.7fuznkyv33w0.png"
-                      alt="image-20230711151508643" style="zoom:50%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230711/image-20230711145033148.7fuznkyv33w0.png" alt="image-20230711151508643" style="zoom:50%;" />
 
 <h2 id="五、关系演算"><a href="#五、关系演算" class="headerlink" title="五、关系演算"></a>五、关系演算</h2><h3 id="（一）元组关系演算语言ALPHA"><a href="#（一）元组关系演算语言ALPHA" class="headerlink" title="（一）元组关系演算语言ALPHA"></a>（一）元组关系演算语言ALPHA</h3><p>ALPHA语言主要有GET、PUT、HOLD、UPDATE、DELETE、DROP六条语句。语句的基本格式为</p>
 <p>操作语句 工作空间名（表达式）：操作条件</p>
@@ -494,7 +443,7 @@
             
         </div>
         
-            <script async data-pjax
+            <script async 
                     src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <div class="website-count info-item">
                 
@@ -640,12 +589,8 @@
 
 
 
-    
-<script src="/js/lazyload.js"></script>
 
-
-
-<div class="post-scripts pjax">
+<div class="post-scripts">
     
         
 <script src="/js/post-helper.js"></script>
@@ -662,40 +607,6 @@
         
     
 </div>
-
-
-    
-<script src="/js/libs/pjax.min.js"></script>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
 
 
 

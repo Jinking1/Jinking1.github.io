@@ -32,7 +32,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/touxiang.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing || and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":false},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/touxiang.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing || and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":false},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -46,9 +46,6 @@
         <span class="scroll-progress-bar"></span>
     
 
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
     
 </div>
 
@@ -95,14 +92,6 @@
                             </a>
                         </li>
                     
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                CATEGORIES
-                            </a>
-                        </li>
-                    
                     
                         <li class="menu-item search search-popup-trigger">
                             <i class="fas fa-search"></i>
@@ -132,11 +121,6 @@
                 <li class="drawer-menu-item flex-center">
                     <a class=""
                        href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">CATEGORIES</a>
                 </li>
             
         </ul>
@@ -241,58 +225,28 @@
 <p>例：定义SC中的参照完整性</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> SC</span><br><span class="line"></span><br><span class="line">(Sno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"></span><br><span class="line">Cno <span class="type">CHAR</span>(<span class="number">9</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"></span><br><span class="line">Grade <span class="type">SMALLINT</span>,</span><br><span class="line"></span><br><span class="line"><span class="keyword">PRIMARY</span> KEY(Sno,Cno),</span><br><span class="line"></span><br><span class="line">FOREGIN KEY(Sno) <span class="keyword">REFERENCES</span> Student(Sno),     <span class="comment">/*在表级定义参照完整性*/</span></span><br><span class="line"></span><br><span class="line">FOREGIN KEY(Cno) <span class="keyword">REFERENCES</span> Student(Cno)     <span class="comment">/*在表级定义参照完整性*/</span></span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h3 id="（二）参照完整性检查和违约处理"><a href="#（二）参照完整性检查和违约处理" class="headerlink" title="（二）参照完整性检查和违约处理"></a>（二）参照完整性检查和违约处理</h3><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713141547.yujo9zilcc0.png"
-                      alt="988a26ffcee8303110a18c3d688c3ae" style="zoom:67%;" 
-                >
+<h3 id="（二）参照完整性检查和违约处理"><a href="#（二）参照完整性检查和违约处理" class="headerlink" title="（二）参照完整性检查和违约处理"></a>（二）参照完整性检查和违约处理</h3><img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713141547.yujo9zilcc0.png" alt="988a26ffcee8303110a18c3d688c3ae" style="zoom:67%;" />
 
 <h2 id="三、用户定义的完整性"><a href="#三、用户定义的完整性" class="headerlink" title="三、用户定义的完整性"></a>三、用户定义的完整性</h2><h3 id="（一）属性上的约束条件"><a href="#（一）属性上的约束条件" class="headerlink" title="（一）属性上的约束条件"></a>（一）属性上的约束条件</h3><ul>
 <li>列值非空（NOT NULL）</li>
 <li>列值唯一（UNIQUE）</li>
 <li>检查列值是否满足一个条件表达式（CHECK）</li>
 </ul>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713141939.7g8oda898bw0.webp"
-                      alt="image-20230713141909047" style="zoom:67%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713141939.7g8oda898bw0.webp" alt="image-20230713141909047" style="zoom:67%;" />
 
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_202307131419391.6p8ji6diagc0.webp"
-                      alt="image-20230713141929238" style="zoom:67%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_202307131419391.6p8ji6diagc0.webp" alt="image-20230713141929238" style="zoom:67%;" />
 
-<h3 id="（二）元组上的约束条件"><a href="#（二）元组上的约束条件" class="headerlink" title="（二）元组上的约束条件"></a>（二）元组上的约束条件</h3><img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713142139.3zd09luzk1y0.webp"
-                      alt="image-20230713142144414" style="zoom:67%;" 
-                >
+<h3 id="（二）元组上的约束条件"><a href="#（二）元组上的约束条件" class="headerlink" title="（二）元组上的约束条件"></a>（二）元组上的约束条件</h3><img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713142139.3zd09luzk1y0.webp" alt="image-20230713142144414" style="zoom:67%;" />
 
 <h2 id="四、完整性约束命名子句"><a href="#四、完整性约束命名子句" class="headerlink" title="四、完整性约束命名子句"></a>四、完整性约束命名子句</h2><p>1、完整性约束命名子句</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CONSTRAINT</span><span class="operator">&lt;</span>完整性约束条件名<span class="operator">&gt;</span><span class="operator">&lt;</span>完整性约束条件<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>包括NOT NULL,UNIQUE,PRIMARY KEY,FOREIGN KEY,CHECK短语等。</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713151344.5wrmogikdmo0.webp"
-                      alt="image-20230713151339998" style="zoom:67%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713151344.5wrmogikdmo0.webp" alt="image-20230713151339998" style="zoom:67%;" />
 
 <p>2、修改表中的完整性限制</p>
 <p>可以使用ALTER TABLE语句修改表中的完整性限制</p>
-<img  
-                     lazyload
-                     alt="image"
-                     data-src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713151632.75f1z36mdt00.webp"
-                      alt="image-20230713151626213" style="zoom:67%;" 
-                >
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/20230713/微信图片_20230713151632.75f1z36mdt00.webp" alt="image-20230713151626213" style="zoom:67%;" />
 
 <h2 id="五、断言"><a href="#五、断言" class="headerlink" title="五、断言"></a>五、断言</h2><p>在SQL中可以使用数据定义语言中的CREATE ASSERTION语句，通过声明性断言来指定更具有一般性的约束。</p>
 <p>1、创建断言的格式</p>
@@ -434,7 +388,7 @@
             
         </div>
         
-            <script async data-pjax
+            <script async 
                     src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <div class="website-count info-item">
                 
@@ -580,12 +534,8 @@
 
 
 
-    
-<script src="/js/lazyload.js"></script>
 
-
-
-<div class="post-scripts pjax">
+<div class="post-scripts">
     
         
 <script src="/js/post-helper.js"></script>
@@ -602,40 +552,6 @@
         
     
 </div>
-
-
-    
-<script src="/js/libs/pjax.min.js"></script>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
-</script>
 
 
 
