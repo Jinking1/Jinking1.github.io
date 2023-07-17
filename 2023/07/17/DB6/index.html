@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="JinChengJun">
+    
+    <title>
+        
+            数据库系统概论六（数据库编程) |
+        
+        JinChengJun&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/touxiang.png","font_size":null,"font_family":null,"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep writing || and Keep loving.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":true}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":false},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               JinChengJun&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">数据库系统概论六（数据库编程)</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/touxiang.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">JinChengJun</span>
+                            
+                                <span class="author-label">Lv1</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-07-17 15:18:36</span>
+        <span class="mobile">2023-07-17 15:18</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-07-17 15:18:02</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/DataBase/">DataBase</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/DataBase/">DataBase</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <hr>
+<p>SQL编程技术可以有效克服SQL语言实现复杂应用方面的不足，提高应用系统和数据库管理系统的互操作性</p>
+<h2 id="一、嵌入式SQL"><a href="#一、嵌入式SQL" class="headerlink" title="一、嵌入式SQL"></a>一、嵌入式SQL</h2><h3 id="（一）嵌入式SQL的处理过程"><a href="#（一）嵌入式SQL的处理过程" class="headerlink" title="（一）嵌入式SQL的处理过程"></a>（一）嵌入式SQL的处理过程</h3><p>嵌入式SQL是将SQL语言嵌入到语言中，被嵌入的语言称为宿主语言。</p>
+<p>主语言为C时，语法格式：</p>
+<p>EXEC SQL&lt;SQL语句&gt;;</p>
+<p>主语言为JAVA时，语法格式:</p>
+<p>#SQL {&lt;SQL语句&gt;};</p>
+<h3 id="（二）嵌入式SQL语句与主语言之间的通信"><a href="#（二）嵌入式SQL语句与主语言之间的通信" class="headerlink" title="（二）嵌入式SQL语句与主语言之间的通信"></a>（二）嵌入式SQL语句与主语言之间的通信</h3><p>数据库工作单元和源程序工作单元之间的通信主要包括：</p>
+<p>（1）向主语言传递SQL语句的执行状态信息，使主语言能够据此信息控制程序流程，主要用SQL通信区实现</p>
+<p>（2）主语言向SQL语言提供参数，主要用主变量来实现</p>
+<p>（3）将SQL语句查询数据库的结果交主语言去处理，主要用主变量和游标实现</p>
+<p>1、SQL通信区</p>
+<p>SQL语句执行后，系统要反馈给应用程序若干信息，主要包括描述系统当前工作状态和运行环境的各种数据。</p>
+<p>2、主变量</p>
+<p>嵌入式SQL语句可以使用主语言的程序变量来输入或输出数据。</p>
+<p>3、游标</p>
+<p>为了避免一次执行整个SQL，返回结果包含大量行，撑爆内存，整个时候可以使用游标来封装刚刚提到的“整个查询”。</p>
+<p>游标有显式游标和隐式游标：</p>
+<p>显式游标主要用于对查询语句的处理，尤其是查询结果返回多条记录的情况。<br>隐式游标由系统定义，“对于非查询语句，如修改、删除操作，则由系统自动地为这些操作设置游标并创建其工作区，这些由系统隐含创建的游标称为隐式游标，隐式游标的名字为SQL”。</p>
+<h3 id="（三）不用游标的SQL语句"><a href="#（三）不用游标的SQL语句" class="headerlink" title="（三）不用游标的SQL语句"></a>（三）不用游标的SQL语句</h3><p>1、查询结果为单SELECT语句</p>
+<p>这类语句因为查询结果只有一个，只需INTO子句指定存放查询结果的主变量，不需要使用游标</p>
+<p>2、非CURRENT形式的增删改查语句</p>
+<p>有些非CURRENT形式的增删改查语句不需要使用游标。</p>
+<h3 id="（四）使用游标的SQL语句"><a href="#（四）使用游标的SQL语句" class="headerlink" title="（四）使用游标的SQL语句"></a>（四）使用游标的SQL语句</h3><p>1、查询结果为多SELECT语句</p>
+<p>一般情况下，SELECT语句查询结果是多条记录的SELECT语句、CURRENT形式的UPDATE和DELETE语句</p>
+<p>（1）说明游标</p>
+<p>定义游标：</p>
+<p>EXEC SQL DECLARE&lt;游标名&gt;CURSOR FOR&lt;SELECT语句&gt;;</p>
+<p>（2）打开游标</p>
+<p>EXEC SQL OPEN&lt;游标名&gt;;</p>
+<p>（3）推进游标指针并取当前记录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXEC</span> <span class="keyword">SQL</span> <span class="keyword">FETCH</span> <span class="operator">&lt;</span>游标名<span class="operator">&gt;</span></span><br><span class="line"> 	 <span class="keyword">INTO</span><span class="operator">&lt;</span>主变量<span class="operator">&gt;</span>[<span class="operator">&lt;</span>指示变量<span class="operator">&gt;</span>][,<span class="operator">&lt;</span>主变量<span class="operator">&gt;</span>[<span class="operator">&lt;</span>指示变量<span class="operator">&gt;</span>]];</span><br></pre></td></tr></table></figure>
+
+<p>（4）关闭游标</p>
+<p>EXEC SQL CLOSE&lt;游标名&gt;;</p>
+<p>2、CURRENT形式的UPDATE和DELETE语句</p>
+<p>UPDATE语句和DELETE语句中要用的子句：</p>
+<p>WHERE CURRENT OF &lt;游标名&gt;;</p>
+<h2 id="二、过程化SQL"><a href="#二、过程化SQL" class="headerlink" title="二、过程化SQL"></a>二、过程化SQL</h2><h3 id="（一）过程化SQL的块结构"><a href="#（一）过程化SQL的块结构" class="headerlink" title="（一）过程化SQL的块结构"></a>（一）过程化SQL的块结构</h3><p>基本的SQL是高度非过程化的语言。嵌入式SQL将SQL语句嵌入程序设计语言，借助高级语言的控制功能实现过程化。过程化SQL是对SQL的扩展，使其增加了过程化语句功能。<br>过程化SQL程序的基本结构是块。所有的过程化SQL程序都是由块组成的。这些块之间可以相互嵌套，每个块完成一个逻辑操作。</p>
+<p>1.过程化SQL块的基本结构图示：</p>
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/image-20230717145118845.4g4e7pdrx0c0.webp" alt="image-20230717145118845" style="zoom:67%;" />
+
+<p>2.量和常量的定义<br>变量定义<br>变量名 数据类型 [[NOT NULL] :&#x3D;初值表达式]<br>或者<br>变量名 数据类型 [[NOT NULL] 初值表达式]<br>常量定义<br>常量名 数据类型 CONSTANT:&#x3D;常量表达式<br>常量必须要给一个值，并且该值在存在期间或常量的作用域内不能改变。如果试图修改它，过程化SQL将返回一个异常。<br>赋值语句<br>变量名 :&#x3D;表达式</p>
+<ol start="3">
+<li>流程控制<br>过程化SQL提供了流程控制语句，主要有条件控制语句和循环控制语句。这些语句的语法、定义和一般的高级语言类似。</li>
+<li>条件控制语句<br>1)IF语句</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IF  <span class="keyword">condition</span>  <span class="keyword">THEN</span></span><br><span class="line">    Sequence_of_statements;     <span class="comment">/*条件为真时语句序列才被执行*/</span></span><br><span class="line"><span class="keyword">END</span> IF      <span class="comment">/*条件为假或NULL时什么也不做，控制转移至下一个语句*/</span></span><br></pre></td></tr></table></figure>
+
+<p>2)IF-THEN语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IF  <span class="keyword">condition</span>  <span class="keyword">THEN</span></span><br><span class="line">    Sequence_of_statements1;     <span class="comment">/*条件为真时语句序列才被执行*/</span></span><br><span class="line"><span class="keyword">ELSE</span></span><br><span class="line">    Sequence_of_statements2;     <span class="comment">/*条件为假或NULL时才被执行*/</span>  </span><br><span class="line"><span class="keyword">END</span> IF</span><br></pre></td></tr></table></figure>
+
+<p>套的IF语句<br>在THEN和ELSE子句中还可以包含IF语句，IF语句可以嵌套。</p>
+<ol start="2">
+<li>循环控制语句<br>1)最简单的循环语句LOOP</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LOOP</span><br><span class="line">    Sequence_of_statements；    <span class="comment">/*循环体，一组过程化SQL语句*/</span></span><br><span class="line"><span class="keyword">END</span> LOOP;</span><br></pre></td></tr></table></figure>
+
+<p>多数数据库服务器的过程化SQL都提供EXIT、BREAK或LEAVE等循环结束语句以保证LOOP语句块能够在适当的条件下提前结束。<br>2)WHERE-LOOP循环语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> <span class="keyword">condition</span> LOOP</span><br><span class="line">    Sequence_of_statements；    <span class="comment">/*条件为真时执行循环体内的语句序列*/</span></span><br><span class="line"><span class="keyword">END</span> LOOP;</span><br></pre></td></tr></table></figure>
+
+<p>每次执行循环体语句之前首先对条件进行求值，如果条件为真则执行循环体内的语句序列，如果条件为假则跳过循环并把控制传递给下一个语句。<br>3)FOR-LOOP</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FOR</span> count <span class="keyword">IN</span> [REVERSE] bound1...bound2  LOOP</span><br><span class="line">     Sequence_of_statements；</span><br><span class="line"><span class="keyword">END</span> LOOP;</span><br></pre></td></tr></table></figure>
+
+<p>FOR循环的基本执行过程:<br>将count设置为循环的下界bound1，检查它是否小于上界bound2。当指定REVERSE时则将count设置为循环的上界bound2，检查count是否大于下界bound1。如果越界则执行跳出循环，否则执行循环体，然后按照步长（+1或-1）更新count的值，重新判断条件。<br>3. 错误处理<br>如果过程化SQL在执行时出现异常，则应该让程序在产生异常的语句处停下来，根据异常的类型去执行异常处理语句。<br>SQL标准对数据库服务器提供什么样的异常处理作出了建议，要求过程化SQL管理器提供完善的一次处理机制。</p>
+<h3 id="（二）存储过程和函数"><a href="#（二）存储过程和函数" class="headerlink" title="（二）存储过程和函数"></a>（二）存储过程和函数</h3><p>过程化SQL块主要有命名块和匿名块。匿名块每次执行时都要进行编译，它不能被存储到数据库中，也不能在其他过程化SQL块中调用。过程和函数是命名块，他们被编译后保存在数据库中，称为持久性存储模块（PSM），可以 被反复调用，运行速度较快。</p>
+<p>1.存储过程<br>存储过程是由过程化SQL语句书写的过程，这个过程经编译和优化后存储在数据库服务器中，因此称它为存储过程，使用时只要调用即可。</p>
+<ol>
+<li>存储过程的优点<br>1）由于存储过程不像解释执行的SQL语句那样在提出操作请求时才进行语法分析和优化工作，因而运行效率高，它提供了在服务器端快速执行SQL语句的有效途径。<br>2）存储过程降低了客户机和服务器之间的通信量。客户机上的应用程序只要通过网络向服务器发出调用存储过程的名字和参数，就可以让关系数据库管理系统执行其中的多条SQL语句并进行数据处理，只有最终的处理结果才返回客户端。<br>3）方便实施企业规则。可以把企业规则的运算程序写成存储过程放入数据库服务器中，由关系数据库管理系统管理，既有利于集中控制，又能够方便地进行维护。当企业规则发生变化时只要修改存储过程即可，无需修改其他应用程序。</li>
+<li>存储过程的用户接口<br>1）创建存储过程</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">PROCEDURE</span> 过程名（[参数<span class="number">1</span>，参数<span class="number">2</span>,,,]）   <span class="comment">/*存储过程首部*/</span></span><br></pre></td></tr></table></figure>
+
+<p>AS &lt;过程化SQL块&gt;  &#x2F;<em>存储过程体，描述该存储过程的操作</em>&#x2F;<br>存储过程包括过程首部和过程体，在过程首部，“过程名”是数据库服务器合法的对象标识；参数列表[参数1，参数2,,,]用名字来标识调用时给出的参数值，必须指定值的数据类型。<br>过程体是一个&lt;过程化SQL块&gt;，包括声明部分和可执行语句部分。<br>2）执行存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span><span class="operator">/</span>PERFORM <span class="keyword">PROCEDURE</span> 过程名（[参数<span class="number">1</span>，参数<span class="number">2</span>,,,]）</span><br></pre></td></tr></table></figure>
+
+<p>使用CALL或者PERFORM等方式激活存储过程的执行，在过程化SQL中，数据库服务器支持在过程体中调用其他存储过程。<br>3）修改存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名<span class="number">1</span> RENAME <span class="keyword">TO</span> 过程名<span class="number">2</span>；（重新命名一个存储过程）</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名 COMPILEL;（重新编译一个存储过程）</span><br></pre></td></tr></table></figure>
+
+<p>4）删除存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> 过程名()；</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>函数<br>函数必须指定返回的类型。</li>
+<li>函数的定义语句格式</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">FUNCTION</span> 函数名([参数名<span class="number">1</span>，参数名<span class="number">2</span>，...]) <span class="keyword">RETURNS</span><span class="operator">&lt;</span>类型<span class="operator">&gt;</span> <span class="keyword">AS</span> <span class="operator">&lt;</span>过程化<span class="keyword">SQL</span>块<span class="operator">&gt;</span></span><br><span class="line">函数的执行语句格式</span><br><span class="line"><span class="keyword">CALL</span><span class="operator">/</span><span class="keyword">SELECT</span>  函数名([参数名<span class="number">1</span>，参数名<span class="number">2</span>，...])</span><br><span class="line">修改函数</span><br><span class="line">重命名一个自定义函数</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 函数名<span class="number">1</span> RENAME <span class="keyword">TO</span> 函数名<span class="number">2</span></span><br><span class="line">重新编译一个函数</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 函数名 COMPILE;</span><br></pre></td></tr></table></figure>
+
+<h3 id="（三）过程化SQL中的游标"><a href="#（三）过程化SQL中的游标" class="headerlink" title="（三）过程化SQL中的游标"></a>（三）过程化SQL中的游标</h3><p>和嵌入式SQL一样，在过程化SQL中如果SELECT语句只返回一条记录，可以将该结果存放到变量中。当查询返回多条记录时，就要使用游标对结果集进行处理。一个游标与一个SQL语句相关联。在存储过程中可以定义普通 游标、REFCURSOR类型游标、带参数的游标等。</p>
+<p>存储过程和自定义函数用的比较多，因此对存储过程和函数要加深了解。</p>
+<h2 id="三、存储过程和函数"><a href="#三、存储过程和函数" class="headerlink" title="三、存储过程和函数"></a>三、存储过程和函数</h2><h3 id="（一）存储过程"><a href="#（一）存储过程" class="headerlink" title="（一）存储过程"></a>（一）存储过程</h3><p>1、存储过程的优点：</p>
+<p>（1）不像SQL执行解释进行语法分析和优化，运行效率高</p>
+<p>（2）存储过程降低了客户机和服务器之间的通信量</p>
+<p>（3）方便实施企业规则</p>
+<p>2、存储过程的用户接口</p>
+<p>（1）创建存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">PROCEDURE</span> 过程名([参数<span class="number">1</span>][参数<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>（2）执行存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span><span class="operator">/</span>PERFORM <span class="keyword">PROCEDURE</span> 过程名([参数<span class="number">1</span>][参数<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<p>（3）修改存储过程</p>
+<p>重命名一个存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名<span class="number">1</span> RENAME <span class="keyword">TO</span> 过程名<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>重编译一个存储过程：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名 COMPLIE;</span><br></pre></td></tr></table></figure>
+
+<p>（4）删除存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> 过程名();</span><br></pre></td></tr></table></figure>
+
+<h3 id="（二）函数"><a href="#（二）函数" class="headerlink" title="（二）函数"></a>（二）函数</h3><p>1、函数定义的语言格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">FUNCTION</span> 函数名([参数<span class="number">1</span>,参数<span class="number">2</span>,...]) <span class="keyword">RETURNS</span> <span class="operator">&lt;</span>类型<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">AS</span> <span class="operator">&lt;</span>过程化<span class="keyword">SQL</span>块<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>2、函数的执行语句格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CALL</span><span class="operator">/</span><span class="keyword">SELECT</span> 函数名([参数<span class="number">1.</span>参数<span class="number">2</span>,...]);</span><br></pre></td></tr></table></figure>
+
+<p>3、修改函数</p>
+<p>重命名一个自定义函数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 过程名<span class="number">1</span> RENAME <span class="keyword">TO</span> 过程名<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>重编译一个函数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 函数名 COMPILE;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、ODBC编程"><a href="#四、ODBC编程" class="headerlink" title="四、ODBC编程"></a>四、ODBC编程</h2><h3 id="（一）ODBC概述"><a href="#（一）ODBC概述" class="headerlink" title="（一）ODBC概述"></a>（一）ODBC概述</h3><p>ODBC是为了解决连接不同关系数据库管理系统的方法、技术和软件，使数据库系统“开放”，能够实现“数据库互连”这些问题的接口标准。它是微软公司开放服务体系（WOSA）中有关数据库的一个组成部分，它建立了一组规范，并提供一组访问数据库的应用程序接口（API）。ODBC具有两重功效或约束力：一方面规范应用开发，另一方面规范数据库管理系统应用接口。</p>
+<h3 id="（二）ODBC工作原理"><a href="#（二）ODBC工作原理" class="headerlink" title="（二）ODBC工作原理"></a>（二）ODBC工作原理</h3><p>1、用户应用程序<br>用户应用程序提供用户界面、应用逻辑和事务逻辑。使用ODBC开发数据库应用程序时，应用程序调用的是标准的ODBC函数和SQL语句。应用层使用ODBC API调用接口与数据库进行交互。使用ODBC来开发应用系统的程序简称ODBC应用程序，包括：</p>
+<ul>
+<li><p>请求连接数据库。</p>
+</li>
+<li><p>向数据源发送SQL语句。</p>
+</li>
+<li><p>为SQL语句执行结果分配存储空间，定义所读取的数据格式。</p>
+</li>
+<li><p>获取数据库操作结果或处理错误。</p>
+</li>
+<li><p>进行数据处理并向用户提交处理结果。</p>
+</li>
+<li><p>请求事务的提交和回滚操作。</p>
+</li>
+<li><p>断开与数据源的连接。</p>
+</li>
+</ul>
+<p>2、ODBC驱动程序管理器<br>驱动程序管理器用来管理各种驱动程序。ODBC驱动程序管理器由微软公司提供，它包含在ODVC32.DLL中，对用户是透明的，管理应用程序和驱动程序之间的通信。ODBC驱动程序管理器主要功能包含装载ODBC驱动程序、选择和连接正确的驱动程序、管理数据源、检查ODBC调用参数的合法性及记录ODBC函数的调用等，当应用层需要时返回驱动程序的有关信息。<br>ODBC驱动程序管理器可以建立、配置或删除数据源，并查看系统当前所安装的数据库ODBC驱动程序。</p>
+<p>3、数据驱动程序<br>ODBC通过数据库驱动程序来提供应用系统与数据库平台的独立性。<br>ODBC应用程序不能直接存储数据库，其各种操作请求由驱动程序管理器提交给某个关系数据库管理系统的ODBC驱动程序，通过调用驱动程序所支持的函数来存取数据库。数据库的操作结果也通过驱动程序返回给应用程序。如果应用程序要操纵不同的数据库，就要动态地链接到不同的驱动程序上。</p>
+<p>ODBC驱动程序</p>
+<ul>
+<li>单束<br>数据库和应用程序在同一台机器上，驱动程序直接完成对数据文件的I&#x2F;O操作，这时驱动程序相当于数据管理器。</li>
+<li>多束<br>支持客户机-服务器、客户机-应用服务器&#x2F;数据库服务器等网络环境下的数据访问，这时由驱动程序完成数据库访问请求的提交和结果集接收，应用程序使用驱动程序提供的结果集管理接口操纵执行后的结果数据。</li>
+</ul>
+<p>4、ODBC数据源管理<br>数据源是最终用户要访问的数据，包含了数据库位置和数据库类型等信息，实际上是一种数据连接的抽象。<br>ODBC给每个被访问的数据源指定唯一的数据源名（DSN），并映射到所有必要的、用来存取数据的低层软件。在连接中，用数据源名来代表用户名、服务器名、所连接d 数据库名等。最终用户无须知道数据库管理系统或其他数据库管理软件、网络以及有关ODBC驱动程序的细节，数据源对最终用户是透明的。</p>
+<h3 id="（三）ODBC工作流程"><a href="#（三）ODBC工作流程" class="headerlink" title="（三）ODBC工作流程"></a>（三）ODBC工作流程</h3><p>使用ODBC的应用系统大致的工作流程：</p>
+<img src="https://cdn.staticaly.com/gh/Jinking1/picx-images-hosting@master/image-20230717151649889.lbjkftlw3qo.webp" alt="image-20230717151649889" style="zoom:67%;" />
+
+<ol>
+<li><p>配置数据源<br>运行数据管理工具来进行配置<br>使用Driver Manager提供的ConfigDsn函数来增删改数据源。这种方法特别适用于在应用程序中创建临时使用的数据源。</p>
+</li>
+<li><p>初始化环境<br>由Driver Manager来进行控制并配置环境属性，直到应用程序通过调用连接函数和某个数据源进行连接后，Driver Manager才调用多连的驱动程序中的SQLAllcoHandle来真正分配环境句柄的数据结构。</p>
+</li>
+<li><p>建立连接<br>应用程序用SQLAllocHandle分配连接句柄，通过SQLConnect、SQLDriverConnect或SQLBroeseConnect与数据源连接。其中SQLConnect是最简单的连接函数，输出参数为配置好的数据源名称、用户ID和口令。</p>
+</li>
+<li><p>分配语句句柄<br>在处理任何SQL语句之前，应用程序还需要首先分配一个语句句柄。语句句柄含有具体的SQL语句以及输出的结果集等信息。在后面的执行函数中，语句句柄都是没有必要的输入参数。<br>应用程序还可以通过SQLtStmtAttr来设置语句属性。</p>
+</li>
+<li><p>执行SQL语句<br>应用程序处理SQL语句的方式：预处理或直接执行。如果SQL语句含有参数，应用程序为每个参数调用SQLBindParameter，并把它们绑定至应用程序变量。这样应用程序可以直接通过改变应用程序缓冲区的内容从而在程序中动态改变SQL语句的具体执行。接下来的操作则会根据语句类型来进行相应处理。</p>
+</li>
+<li><p>对于有结果集的语句（select或是编目函数），则进行结果集处理。</p>
+</li>
+<li><p>对于没有结构集的函数，可以直接利用本语句句柄继续执行新的语句或是获取行技术（本次执行所影响的行数）之后继续执行。</p>
+</li>
+<li><p>结果集处理<br>应用程序可以通过SQLNubResultCols来获取结果集中的列数，通过SQL DescribeCol或是SQLColAttrbute函数来获取结果集每一列的名称、数据类型、精度和范围。<br>ODBC中使用游标来处理结果集数据。游标可分为forward-only游标和可滚动游标。Foward-only游标只能在结果集中向前滚动，它是ODBC的默认游标类型。可滚动游标又可以分为静态、动态、码集驱动和混合型驱动4种。<br>ODBC游标的打开方式不同于嵌入式SQL，不是显式声明而是系统自动产生一个游标，当结果集刚刚生成时，游标指向第一行数据之前。应用程序通过SQLBindCol把查询结果绑定到应用程序缓冲区中，通过SQLFetch或是SQLFetchScroll来移动游标获取结果集中的每一行数据。</p>
+</li>
+<li><p>中止处理<br>处理接收后，应用程序将首先释放语句句柄，然后释放数据库连接并与数据库服务器断开，最后释放ODBC环境。</p>
+</li>
+</ol>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">Post title</span>: <span class="content">数据库系统概论六（数据库编程)</span>
+        </li>
+        <li class="post-author">
+            <span class="type">Post author</span>: <span class="content">JinChengJun</span>
+        </li>
+        <li class="post-time">
+            <span class="type">Create time</span>: <span class="content">2023-07-17 15:18:36</span>
+        </li>
+        <li class="post-link">
+            <span class="type">Post link</span>: <span class="content">2023/07/17/DB6/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">Copyright notice</span>: <span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="Copy copyright info" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/DataBase/">#DataBase</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/07/17/DB3/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据库系统概论三（关系型数据库标准语言SQL)</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B5%8C%E5%85%A5%E5%BC%8FSQL"><span class="nav-number">1.</span> <span class="nav-text">一、嵌入式SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%B5%8C%E5%85%A5%E5%BC%8FSQL%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">（一）嵌入式SQL的处理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B5%8C%E5%85%A5%E5%BC%8FSQL%E8%AF%AD%E5%8F%A5%E4%B8%8E%E4%B8%BB%E8%AF%AD%E8%A8%80%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">1.2.</span> <span class="nav-text">（二）嵌入式SQL语句与主语言之间的通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E4%B8%8D%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84SQL%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.3.</span> <span class="nav-text">（三）不用游标的SQL语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E5%9B%9B%EF%BC%89%E4%BD%BF%E7%94%A8%E6%B8%B8%E6%A0%87%E7%9A%84SQL%E8%AF%AD%E5%8F%A5"><span class="nav-number">1.4.</span> <span class="nav-text">（四）使用游标的SQL语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%87%E7%A8%8B%E5%8C%96SQL"><span class="nav-number">2.</span> <span class="nav-text">二、过程化SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E8%BF%87%E7%A8%8B%E5%8C%96SQL%E7%9A%84%E5%9D%97%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">（一）过程化SQL的块结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">（二）存储过程和函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89%E8%BF%87%E7%A8%8B%E5%8C%96SQL%E4%B8%AD%E7%9A%84%E6%B8%B8%E6%A0%87"><span class="nav-number">2.3.</span> <span class="nav-text">（三）过程化SQL中的游标</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%92%8C%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、存储过程和函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">（一）存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89%E5%87%BD%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">（二）函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81ODBC%E7%BC%96%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">四、ODBC编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%80%EF%BC%89ODBC%E6%A6%82%E8%BF%B0"><span class="nav-number">4.1.</span> <span class="nav-text">（一）ODBC概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%BA%8C%EF%BC%89ODBC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.</span> <span class="nav-text">（二）ODBC工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%88%E4%B8%89%EF%BC%89ODBC%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">4.3.</span> <span class="nav-text">（三）ODBC工作流程</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2022</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">JinChengJun</a>
+            
+        </div>
+        
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+
+</body>
+</html>
